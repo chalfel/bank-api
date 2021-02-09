@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testExecutions version="1">
+  <file path="/home/chalfel/Projects/ts-express-typeorm-boilerplate/__tests__/unit/user.spec.ts">
+    <testCase name="UserService Test" duration="2"/>
+  </file>
+</testExecutions>

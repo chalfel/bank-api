@@ -1,0 +1,32 @@
+version: '3.7'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3333:3333"
+    volumes:
+      - .:/app
+    environment:
+      - DB_HOST=db
+    command: "yarn dev"
+  db:
+    image: postgres:11
+    restart: always
+    tty: true
+    volumes:
+      - .pgdata:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=app_db
+    ports:
+      - "5432:5432"
+  sonarqube:
+    container_name:  sonarqube
+    image:  sonarqube:latest
+    ports:
+      -  "9000:9000"
+      -  "9092:9092"

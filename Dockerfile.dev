@@ -1,0 +1,12 @@
+FROM node:lts
+
+WORKDIR /app
+
+COPY package.json yarn.* ./
+
+RUN yarn 
+
+EXPOSE 3333
+
+CMD ["tail", "-f", "/dev/null"]
+

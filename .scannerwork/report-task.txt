@@ -1,0 +1,6 @@
+projectKey=ts-express-boilerplate
+serverUrl=http://localhost:9000
+serverVersion=8.6.1.40680
+dashboardUrl=http://localhost:9000/dashboard?id=ts-express-boilerplate
+ceTaskId=AXd9CWsFEDsf0xQsPVga
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AXd9CWsFEDsf0xQsPVga

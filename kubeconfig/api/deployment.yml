@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:    
+  name: ts-express-boilerplate
+spec:
+  selector:
+    matchLabels:
+      app: ts-express-boilerplate
+  template:
+    metadata:
+      labels:
+        app: ts-express-boilerplate
+    spec:
+      containers:
+        - name: ts-express-boilerplate
+          image: chalfel/ts-express-boilerplate:v1
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3333
+          envFrom:
+            - secretRef:
+                name: api-secret
+          volumeMounts:
+            - name: api-volume 
+              mountPath: /home/node/app/.env
+              subPath: .env
+
+      volumes:
+        - name: api-volume
+          configMap:
+            name: api-conf
+            items:
+              - key: env
+                path: .env
