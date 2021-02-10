@@ -9,12 +9,12 @@ export default {
   password: process.env.DB_PASSWORD,
   database:
     process.env.NODE_ENV === 'test' ? ':memory:' : process.env.DB_DATABASE,
-  synchronize: false,
+  synchronize: process.env.NODE_ENV === 'test',
   logging: false,
   entities: [path.join(__dirname, '/../../domain/entity/**/*')],
   migrations: [path.join(__dirname, '/../../infra/db/migration/**/*')],
   cli: {
     entitiesDir: 'src/domain/entity',
-    migrationsDir: path.join(__dirname, '/../../infra/db/migration')
+    migrationsDir: 'src/infra/db/migration/'
   }
 }

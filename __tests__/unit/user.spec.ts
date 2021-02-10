@@ -7,7 +7,7 @@ import { UserService } from '../../src/presentation/service/user'
 const makeUserService = () => {
   const userRepository = getRepository(User)
   jest.spyOn(userRepository, 'find').mockImplementation(async () => {
-    const user = new User({ id: 23, firstName: 'Jose' })
+    const user = new User({ id: '123', firstName: 'Jose' })
     return [user]
   })
   return new UserService(userRepository)

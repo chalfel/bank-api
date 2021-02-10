@@ -1,15 +1,16 @@
-import { Entity, PrimaryGeneratedColumn, Column, BaseEntity } from 'typeorm'
+import { Entity, Column } from 'typeorm'
+import { Base } from './Base'
 
 @Entity({ name: 'users' })
-export class User extends BaseEntity {
-  @PrimaryGeneratedColumn()
-  id: number;
-
+export class User extends Base {
   @Column({ name: 'first_name' })
   firstName: string;
 
+  @Column({ name: 'last_name' })
+  lastName: string;
+
   constructor (data: Partial<User>) {
-    super()
+    super(data)
     Object.assign(this, data)
   }
 }

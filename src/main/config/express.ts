@@ -6,9 +6,9 @@ import { setupRoutes } from './route'
 
 export const setupExpress = () => {
   const app = express()
-  setupRoutes(app)
   setSwagger(app)
   setBodyParser(app)
   setCors(app)
+  setupRoutes(app)
   return app
 }

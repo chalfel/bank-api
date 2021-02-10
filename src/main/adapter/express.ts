@@ -8,8 +8,8 @@ export class ExpressAdapter {
   static adapt (func: any) {
     return async (req: Request, res: Response): Promise<Response> => {
       try {
-        const { body, param, query } = req
-        const payload = { body, param, query }
+        const { body, params, query } = req
+        const payload = { body, params, query }
         const { statusCode, data }: ExpressResponseBody = await func(payload)
 
         return res.status(statusCode).json(data)
